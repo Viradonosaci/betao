@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>exercicio 2</title>
+	<style>
+		body {
+			border-top-color: rgba(255, 230, 196, 0.8);
+		}
+
+	</style>
+</head>
+	<body>
+		<h1>Bem vindo ao jogo do Número secreto</h1>
+		<p>Insira seu palpite abaixo</p>
+		<input id="ipt" type="number" placeholde="Palpite">
+		<button onclick="jogo()">Chute</button>	
+		<p id="msg1"></P>
+        <img id="img1" src="">
+        <div id="img2"></div>	
+		<script>
+			let numSec = Math.floor(Math.random() * 10) + 1;
+			console.log(numSec);
+
+			let palpite;
+			let tentativa = 0;
+			let maxTentativa = 5;
+
+        function jogo() {
+
+        let palpite = parseInt(document.getElementById("ipt").value);
+        tentativa++;
+
+        if (tentativa <= maxTentativa) {
+            if (palpite === numSec) {
+                document.getElementById("msg1").innerText = "🎯 Acertou com " + tentativa + " tentativa(s)!";
+                document.getElementById("img1").src = "https://petcaramelo.com/wp-content/uploads/2024/01/cachorro-boxer-gif1.gif"; 
+            } else if (tentativa == maxTentativa) {
+                document.getElementById("msg1").innerText = "❌ GAME OVER!";
+                document.getElementById("img1").src = "https://media.giphy.com/media/L5WQjD4p8IpO0/giphy.gif";
+            } else if (palpite > numSec) {
+                document.getElementById("msg1").innerText = "⬇️ O número secreto é MENOR!";
+                document.getElementById("img1").src = "https://media.tenor.com/oYWZrBbVMQgAAAAM/aqui-baixo.gif";
+            } else {
+                document.getElementById("msg1").innerText = "⬆️ O número secreto é MAIOR!";
+                document.getElementById("img1").src = "https://media4.giphy.com/media/v1.Y2lkPTZjMDliOTUyOHRyNmhkaW44bjM5eTQ0dHRtdG41YXJjY2lpdnoyZnluenh6anJjeSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/RjlFDBpbdDi0ds9uEn/200.gif";
+            }
+        }
+    }
+	</script>	
+
+
+</body>
+</html>
